@@ -1,0 +1,47 @@
+/* 1. Inject Tailwind's base, components, and utilities styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Add custom styles to Tailwind's layers */
+@layer base {
+  /* Define base font families */
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth; /* <-- MOVED HERE */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar styles - These are base-level modifications */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6A5ACD;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5a4fcf;
+  }
+}
+
+@layer utilities {
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;       /* works in modern Chrome, Edge, Safari */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    line-clamp: 3;              /* standard property (for future support) */
+  }
+}
